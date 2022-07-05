@@ -1,0 +1,839 @@
+<?xml version="1.0"?>
+<robot name="doggo_walker">
+
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1.4" />
+      <inertia  ixx="0.93333333333333322e-3" ixy="0" ixz="0" iyy="0.7728466684691111e-3" iyz="0" izz="0.7728466684691111e-3" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/body.stl" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/body.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ##################################################################### -->
+ 
+  <joint name="FRFJ" type="revolute">
+    <origin xyz="0.13 -0.12 0" rpy="0 0 0"></origin>
+    <parent link="base_link"></parent>
+    <child link="front_right_femur"></child>
+    <axis xyz="0 1 0"></axis>
+    <limit effort="30" lower="-1.4" upper="1.4" velocity="6"></limit>
+  </joint>
+
+
+  
+  <link name="front_right_femur">
+    <inertial>
+      <origin xyz="0 0 -0.055" rpy="0 1.571 0" />
+      <mass value="0.4" />
+      <inertia  ixx="0.26666666666666666e-3" ixy="0" ixz="0" iyy="1.3500407131234775e-3" iyz="0" izz="1.3500407131234775e-3" />
+ </inertial>
+    <visual>
+      <origin xyz="0 0 -0.055" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/femur.stl" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.055" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/femur.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- ##################################################################### -->
+
+
+<joint name="FLFJ" type="revolute">
+    <origin xyz="0.13 0.12 0" rpy="0 0 0"></origin>
+    <parent link="base_link"></parent>
+    <child link="front_left_femur"></child>
+    <axis xyz="0 1 0"></axis>
+    <limit effort="30" lower="-1.4" upper="1.4" velocity="6"></limit>
+  </joint>
+
+
+  
+  <link name="front_left_femur">
+    <inertial>
+      <origin xyz="0 0 -0.055" rpy="0 1.571 0" />
+      <mass value="0.4" />
+      <inertia  ixx="0.26666666666666666e-3" ixy="0" ixz="0" iyy="1.3500407131234775e-3" iyz="0" izz="1.3500407131234775e-3" />
+ </inertial>
+    <visual>
+      <origin xyz="0 0 -0.055" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/femur.stl" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.055" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/femur.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+<!-- ##################################################################### -->
+
+
+<joint name="RRFJ" type="revolute">
+    <origin xyz="-0.13 -0.12 0" rpy="0 0 0"></origin>
+    <parent link="base_link"></parent>
+    <child link="rear_right_femur"></child>
+    <axis xyz="0 1 0"></axis>
+    <limit effort="30" lower="-1.4" upper="1.4" velocity="6"></limit>
+  </joint>
+
+
+  
+  <link name="rear_right_femur">
+    <inertial>
+      <origin xyz="0 0 -0.055" rpy="0 1.571 0" />
+      <mass value="0.4" />
+     <inertia  ixx="0.26666666666666666e-3" ixy="0" ixz="0" iyy="1.3500407131234775e-3" iyz="0" izz="1.3500407131234775e-3" />
+  </inertial>
+    <visual>
+      <origin xyz="0 0 -0.055" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/femur.stl" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.055" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/femur.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- ##################################################################### -->
+
+
+<joint name="RLFJ" type="revolute">
+    <origin xyz="-0.13 0.12 0" rpy="0 0 0"></origin>
+    <parent link="base_link"></parent>
+    <child link="rear_left_femur"></child>
+    <axis xyz="0 1 0"></axis>
+    <limit effort="30" lower="-1.4" upper="1.4" velocity="6"></limit>
+  </joint>
+
+
+  
+  <link name="rear_left_femur">
+    <inertial>
+      <origin xyz="0 0 -0.055" rpy="0 1.571 0" />
+      <mass value="0.4" />
+     <inertia  ixx="0.26666666666666666e-3" ixy="0" ixz="0" iyy="1.3500407131234775e-3" iyz="0" izz="1.3500407131234775e-3" />
+ </inertial>
+    <visual>
+      <origin xyz="0 0 -0.055" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/femur.stl" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.055" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/femur.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+<!-- #########################################################################3
+################################################################################
+############################################################################### -->
+
+
+ <!-- ##################################################################### -->
+
+
+<joint name="FRLLJ" type="revolute">
+    <origin xyz="0 0 -0.115" rpy="0 0 0"></origin>
+    <parent link="front_right_femur"></parent>
+    <child link="front_right_lower_leg"></child>
+    <axis xyz="0 1 0"></axis>
+    <limit effort="30" lower="-1.4" upper="0" velocity="6"></limit>
+  </joint>
+
+
+  
+  <link name="front_right_lower_leg">
+    <inertial>
+      <origin xyz="0 0 -0.075" rpy="0 1.571 0" />
+      <mass value="0.4" />
+     <inertia  ixx="0.40013864055798504e-3" ixy="0" ixz="0" iyy="0.6219198715954392e-3" iyz="0" izz="0.7822468894428255e-3" /> </inertial>
+    <visual>
+      <origin xyz="0 0 -0.075" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/lower_leg.stl" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.075" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/lower_leg.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+
+ <!-- ##################################################################### -->
+
+
+<joint name="FLLLJ" type="revolute">
+    <origin xyz="0 0 -0.115" rpy="0 0 0"></origin>
+    <parent link="front_left_femur"></parent>
+    <child link="front_left_lower_leg"></child>
+    <axis xyz="0 1 0"></axis>
+    <limit effort="30" lower="-1.4" upper="0" velocity="6"></limit>
+  </joint>
+
+
+  
+  <link name="front_left_lower_leg">
+    <inertial>
+      <origin xyz="0 0 -0.075" rpy="0 1.571 0" />
+      <mass value="0.4" />
+     <inertia  ixx="0.40013864055798504e-3" ixy="0" ixz="0" iyy="0.6219198715954392e-3" iyz="0" izz="0.7822468894428255e-3" /> </inertial>
+    <visual>
+      <origin xyz="0 0 -0.075" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/lower_leg.stl" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.075" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/lower_leg.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+ <!-- ##################################################################### -->
+
+
+<joint name="RRLLJ" type="revolute">
+    <origin xyz="0 0 -0.115" rpy="0 0 0"></origin>
+    <parent link="rear_right_femur"></parent>
+    <child link="rear_right_lower_leg"></child>
+    <axis xyz="0 1 0"></axis>
+    <limit effort="30" lower="-1.4" upper="0" velocity="6"></limit>
+  </joint>
+
+
+  
+  <link name="rear_right_lower_leg">
+    <inertial>
+      <origin xyz="0 0 -0.075" rpy="0 1.571 0" />
+      <mass value="0.4" />
+      <inertia  ixx="0.40013864055798504e-3" ixy="0" ixz="0" iyy="0.6219198715954392e-3" iyz="0" izz="0.7822468894428255e-3" />  </inertial>
+    <visual>
+      <origin xyz="0 0 -0.075" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/lower_leg.stl" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.075" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/lower_leg.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+ <!-- ##################################################################### -->
+
+
+<joint name="RLLLJ" type="revolute">
+    <origin xyz="0 0 -0.115" rpy="0 0 0"></origin>
+    <parent link="rear_left_femur"></parent>
+    <child link="rear_left_lower_leg"></child>
+    <axis xyz="0 1 0"></axis>
+    <limit effort="30" lower="-1.4" upper="0" velocity="6"></limit>
+  </joint>
+
+
+  
+  <link name="rear_left_lower_leg">
+    <inertial>
+      <origin xyz="0 0 -0.075" rpy="0 1.571 0" />
+      <mass value="0.4" />
+    <inertia  ixx="0.40013864055798504e-3" ixy="0" ixz="0" iyy="0.6219198715954392e-3" iyz="0" izz="0.7822468894428255e-3" /> </inertial>
+    <visual>
+      <origin xyz="0 0 -0.075" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/lower_leg.stl" />
+      </geometry>
+      <material name="black">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.075" rpy="0 0 1.571" />
+      <geometry>
+        <mesh filename="package://quad_walker/mesh/stl/lower_leg.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+
+<!-- ############################################################################# -->
+
+
+
+
+<joint name="FRCS" type="fixed">
+    <origin xyz="0 0 -0.12" rpy="0 0 0"></origin>
+    <parent link="front_right_lower_leg"></parent>
+    <child link="front_right_contact_sensor"></child>
+  </joint>
+
+<link name="front_right_contact_sensor">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <mass value="0.1" />
+   <inertia  ixx="3.600000000000001e-05" ixy="0" ixz="0" iyy="3.600000000000001e-05" iyz="0" izz="3.600000000000001e-05" />  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <sphere radius="0.03"/>
+    </geometry>
+    <material name="black">
+      <color rgba="0.79216 0.81961 0.93333 1" />
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <sphere radius="0.03"/>
+    </geometry>
+  </collision>
+</link>
+
+
+
+
+<joint name="FLCS" type="fixed">
+    <origin xyz="0 0 -0.12" rpy="0 0 0"></origin>
+    <parent link="front_left_lower_leg"></parent>
+    <child link="front_left_contact_sensor"></child>
+  </joint>
+
+<link name="front_left_contact_sensor">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <mass value="0.1" />
+  <inertia  ixx="3.600000000000001e-05" ixy="0" ixz="0" iyy="3.600000000000001e-05" iyz="0" izz="3.600000000000001e-05" /> </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <sphere radius="0.03"/>
+    </geometry>
+    <material name="black">
+      <color rgba="0.79216 0.81961 0.93333 1" />
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <sphere radius="0.03"/>
+    </geometry>
+  </collision>
+</link>
+
+
+
+
+
+<joint name="RRCS" type="fixed">
+    <origin xyz="0 0 -0.12" rpy="0 0 0"></origin>
+    <parent link="rear_right_lower_leg"></parent>
+    <child link="rear_right_contact_sensor"></child>
+  </joint>
+
+<link name="rear_right_contact_sensor">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <mass value="0.1" />
+  <inertia  ixx="3.600000000000001e-05" ixy="0" ixz="0" iyy="3.600000000000001e-05" iyz="0" izz="3.600000000000001e-05" /> </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <sphere radius="0.03"/>
+    </geometry>
+    <material name="black">
+      <color rgba="0.79216 0.81961 0.93333 1" />
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <sphere radius="0.03"/>
+    </geometry>
+  </collision>
+</link>
+
+
+
+<joint name="RLCS" type="fixed">
+    <origin xyz="0 0 -0.12" rpy="0 0 0"></origin>
+    <parent link="rear_left_lower_leg"></parent>
+    <child link="rear_left_contact_sensor"></child>
+  </joint>
+
+<link name="rear_left_contact_sensor">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <mass value="0.1" />
+ <inertia  ixx="3.600000000000001e-05" ixy="0" ixz="0" iyy="3.600000000000001e-05" iyz="0" izz="3.600000000000001e-05" /> </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <sphere radius="0.03"/>
+    </geometry>
+    <material name="black">
+      <color rgba="0.79216 0.81961 0.93333 1" />
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <sphere radius="0.03"/>
+    </geometry>
+  </collision>
+</link>
+
+
+
+
+
+
+<!-- #########################################################################################
+##############################################################################################
+#####################################  Gazebo Properties #####################################
+##############################################################################################
+############################################################################################## -->
+
+
+
+
+    <gazebo reference="base_link">
+       <material>Gazebo/Orange</material>
+       <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <gazebo reference="front_right_femur">
+       <selfCollide>true</selfCollide>
+       <material>Gazebo/Blue</material>
+    </gazebo>
+      <gazebo reference="front_left_femur">
+       <selfCollide>true</selfCollide>
+       <material>Gazebo/Blue</material>
+    </gazebo>
+      <gazebo reference="rear_right_femur">
+       <selfCollide>true</selfCollide>
+       <material>Gazebo/Red</material>
+    </gazebo>
+      <gazebo reference="rear_left_femur">
+       <selfCollide>true</selfCollide>
+       <material>Gazebo/Red</material>
+    </gazebo>
+
+
+
+    <gazebo reference="front_right_lower_leg">
+       <selfCollide>true</selfCollide>
+       <material>Gazebo/Red</material>
+    </gazebo>
+    <gazebo reference="front_left_lower_leg">
+       <selfCollide>true</selfCollide>
+       <material>Gazebo/Red</material>
+    </gazebo>
+    <gazebo reference="rear_right_lower_leg">
+       <selfCollide>true</selfCollide>
+       <material>Gazebo/Red</material>
+    </gazebo>
+    <gazebo reference="rear_left_lower_leg">
+       <selfCollide>true</selfCollide>
+       <material>Gazebo/Red</material>
+    </gazebo>
+
+
+<!-- ##########################################################################
+############################################################################### -->
+
+      <gazebo reference="front_right_contact_sensor">
+       <material>Gazebo/Black</material>
+        <mu1>9000</mu1>
+        <mu2>9000</mu2>
+        <kp>1000000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxContacts>2</maxContacts>
+      <sensor name="front_right_contact_sensor" type="contact">
+          <always_on>true</always_on>
+          <contact>
+            <collision>front_right_lower_leg_fixed_joint_lump__front_right_contact_sensor_collision_1</collision>
+          </contact>
+          <plugin name="bumper0_plugin" filename="libgazebo_ros_bumper.so">
+            <bumperTopicName>front_right_contact_sensor</bumperTopicName>
+            <frameName>front_right_contact_sensor</frameName>
+            <updateRate>50</updateRate>
+          </plugin>
+        </sensor>
+      </gazebo>
+
+      <gazebo reference="front_left_contact_sensor">
+       <material>Gazebo/Black</material>
+       <mu1>9000</mu1>
+        <mu2>9000</mu2>
+        <kp>1000000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxContacts>2</maxContacts>
+        <sensor name="front_left_contact_sensor" type="contact">
+          <always_on>true</always_on>
+          <contact>
+            <collision>front_left_lower_leg_fixed_joint_lump__front_left_contact_sensor_collision_1</collision>
+          </contact>
+          <plugin name="bumper0_plugin" filename="libgazebo_ros_bumper.so">
+            <bumperTopicName>front_left_contact_sensor</bumperTopicName>
+            <frameName>front_left_contact_sensor</frameName>
+            <updateRate>50</updateRate>
+
+          </plugin>
+        </sensor>
+    </gazebo>
+
+      <gazebo reference="rear_right_contact_sensor">
+       <material>Gazebo/Black</material>
+       <mu1>9000</mu1>
+        <mu2>9000</mu2>
+        <kp>1000000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxContacts>2</maxContacts>
+        <sensor name="rear_right_contact_sensor" type="contact">
+          <always_on>true</always_on>
+          <contact>
+            <collision>rear_right_lower_leg_fixed_joint_lump__rear_right_contact_sensor_collision_1</collision>
+          </contact>
+          <plugin name="bumper0_plugin" filename="libgazebo_ros_bumper.so">
+            <bumperTopicName>rear_right_contact_sensor</bumperTopicName>
+            <frameName>rear_right_contact_sensor</frameName>
+            <updateRate>50</updateRate>
+
+          </plugin>
+        </sensor>
+    </gazebo>
+
+
+      <gazebo reference="rear_left_contact_sensor">
+       <material>Gazebo/Black</material>
+       <mu1>9000</mu1>
+        <mu2>9000</mu2>
+        <kp>1000000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxContacts>2</maxContacts>
+        <sensor name="rear_left_contact_sensor" type="contact">
+          <always_on>true</always_on>
+          <contact>
+            <collision>rear_left_lower_leg_fixed_joint_lump__rear_left_contact_sensor_collision_1</collision>
+          </contact>
+          <plugin name="bumper0_plugin" filename="libgazebo_ros_bumper.so">
+            <bumperTopicName>rear_left_contact_sensor</bumperTopicName>
+            <frameName>rear_left_contact_sensor</frameName>
+            <updateRate>50</updateRate>
+
+          </plugin>
+        </sensor>
+    </gazebo>
+
+
+
+<!-- ###################################################################################
+######################################################################################## -->
+
+
+ <gazebo>
+        <plugin name="gazebo_ros_imu_controller" filename="libgazebo_ros_imu.so">
+          <robotNamespace></robotNamespace>
+            <!-- <updateRate>50</updateRate> -->
+          <topicName>imu/data</topicName>
+          <serviceName>imu/service</serviceName>
+          <bodyName>base_link</bodyName>
+          <gaussianNoise>0</gaussianNoise>
+          <rpyOffsets>0 0 0</rpyOffsets>
+          <alwaysOn>true</alwaysOn>
+          <gaussianNoise>0</gaussianNoise>
+        </plugin>
+    </gazebo>
+
+    <gazebo>
+        <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+            <alwaysOn>true</alwaysOn>
+            <bodyName>base_link</bodyName>
+            <updateRate>50</updateRate>
+            <topicName>odom</topicName>
+            <gaussianNoise>0.01</gaussianNoise>
+            <frameName>world</frameName>
+            <xyzOffsets>0 0 0</xyzOffsets>
+            <rpyOffsets>0 0 0</rpyOffsets>
+        </plugin>
+    </gazebo>
+
+
+  <gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+  <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+
+  </plugin>
+  </gazebo>
+
+
+
+<!-- 
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FRFJ">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FLFJ">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RRFJ">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RLFJ">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor4">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+
+
+
+
+  <transmission name="tran5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FRLLJ">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor5">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FLLLJ">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor6">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran7">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RRLLJ">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor7">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran8">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RLLLJ">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor8">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> -->
+
+
+
+
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FRFJ">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FLFJ">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RRFJ">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran4">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RLFJ">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor4">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+
+
+
+
+  <transmission name="tran5">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FRLLJ">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor5">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran6">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FLLLJ">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor6">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran7">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RRLLJ">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor7">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran8">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RLLLJ">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor8">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  
+  </robot>

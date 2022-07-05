@@ -1,0 +1,50 @@
+#Controller script for the biped walker#
+
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+# Effort Controllers & Position Controllers
+FRFJ_controller:
+  # type: effort_controllers/JointEffortController
+  type: position_controllers/JointPositionController
+  joint: FRFJ
+  pid: {p: 1, i: 0.001, d: 0.065}
+
+FLFJ_controller:
+  type: position_controllers/JointPositionController
+  joint: FLFJ
+  pid: {p: 1, i: 0.001, d: 0.065}
+
+RRFJ_controller:
+  type: position_controllers/JointPositionController
+  joint: RRFJ
+  pid: {p: 1, i: 0.001, d: 0.065}
+
+RLFJ_controller:
+  type: position_controllers/JointPositionController
+  joint: RLFJ
+  pid: {p: 1, i: 0.001, d: 0.065}
+
+
+
+FRLLJ_controller:
+  type: position_controllers/JointPositionController
+  joint: FRLLJ
+  pid: {p: 1, i: 0.001, d: 0.065}
+
+FLLLJ_controller:
+  type: position_controllers/JointPositionController
+  joint: FLLLJ
+  pid: {p: 1, i: 0.001, d: 0.065}
+
+RRLLJ_controller:
+  type: position_controllers/JointPositionController
+  joint: RRLLJ
+  pid: {p: 1, i: 0.001, d: 0.065}
+
+RLLLJ_controller:
+  type: position_controllers/JointPositionController
+  joint: RLLLJ
+  pid: {p: 1, i: 0.001, d: 0.065}
+

@@ -1,0 +1,666 @@
+<sdf version='1.7'>
+  <model name='doggo_walker'>
+    <link name='base_link'>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1.4</mass>
+        <inertia>
+          <ixx>0.000933333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000772847</iyy>
+          <iyz>0</iyz>
+          <izz>0.000772847</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/body.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/body.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='FLFJ' type='revolute'>
+      <pose relative_to='base_link'>0.13 0.12 0 0 -0 0</pose>
+      <parent>base_link</parent>
+      <child>front_left_femur</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.4</lower>
+          <upper>1.4</upper>
+          <effort>30</effort>
+          <velocity>7</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_left_femur'>
+      <pose relative_to='FLFJ'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0.055 3.14159 1.57059 3.14159</pose>
+        <mass>0.4</mass>
+        <inertia>
+          <ixx>0.000266667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00135004</iyy>
+          <iyz>0</iyz>
+          <izz>0.00135004</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_left_femur_collision'>
+        <pose>0 0 -0.055 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/femur.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='front_left_femur_visual'>
+        <pose>0 0 -0.055 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/femur.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='FLLLJ' type='revolute'>
+      <pose relative_to='front_left_femur'>0 0 -0.115 0 -0 0</pose>
+      <parent>front_left_femur</parent>
+      <child>front_left_lower_leg</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.4</lower>
+          <upper>1.4</upper>
+          <effort>30</effort>
+          <velocity>7</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_left_lower_leg'>
+      <pose relative_to='FLLLJ'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0.084 3.14159 1.57059 3.14159</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.000436139</ixx>
+          <ixy>0</ixy>
+          <ixz>9.91964e-21</ixz>
+          <iyy>0.00081992</iyy>
+          <iyz>0</iyz>
+          <izz>0.000980247</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_left_lower_leg_collision'>
+        <pose>0 0 -0.075 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/lower_leg.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='front_left_lower_leg_fixed_joint_lump__front_left_contact_sensor_collision_1'>
+        <pose>0 0 -0.12 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.03</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name='front_left_lower_leg_visual'>
+        <pose>0 0 -0.075 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/lower_leg.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='front_left_lower_leg_fixed_joint_lump__front_left_contact_sensor_visual_1'>
+        <pose>0 0 -0.12 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.03</radius>
+          </sphere>
+        </geometry>
+      </visual>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='FRFJ' type='revolute'>
+      <pose relative_to='base_link'>0.13 -0.12 0 0 -0 0</pose>
+      <parent>base_link</parent>
+      <child>front_right_femur</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.4</lower>
+          <upper>1.4</upper>
+          <effort>30</effort>
+          <velocity>7</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_right_femur'>
+      <pose relative_to='FRFJ'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0.055 3.14159 1.57059 3.14159</pose>
+        <mass>0.4</mass>
+        <inertia>
+          <ixx>0.000266667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00135004</iyy>
+          <iyz>0</iyz>
+          <izz>0.00135004</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_right_femur_collision'>
+        <pose>0 0 -0.055 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/femur.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='front_right_femur_visual'>
+        <pose>0 0 -0.055 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/femur.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='FRLLJ' type='revolute'>
+      <pose relative_to='front_right_femur'>0 0 -0.115 0 -0 0</pose>
+      <parent>front_right_femur</parent>
+      <child>front_right_lower_leg</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.4</lower>
+          <upper>1.4</upper>
+          <effort>30</effort>
+          <velocity>7</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_right_lower_leg'>
+      <pose relative_to='FRLLJ'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0.084 3.14159 1.57059 3.14159</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.000436139</ixx>
+          <ixy>0</ixy>
+          <ixz>9.91964e-21</ixz>
+          <iyy>0.00081992</iyy>
+          <iyz>0</iyz>
+          <izz>0.000980247</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_right_lower_leg_collision'>
+        <pose>0 0 -0.075 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/lower_leg.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='front_right_lower_leg_fixed_joint_lump__front_right_contact_sensor_collision_1'>
+        <pose>0 0 -0.12 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.03</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name='front_right_lower_leg_visual'>
+        <pose>0 0 -0.075 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/lower_leg.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='front_right_lower_leg_fixed_joint_lump__front_right_contact_sensor_visual_1'>
+        <pose>0 0 -0.12 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.03</radius>
+          </sphere>
+        </geometry>
+      </visual>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='RLFJ' type='revolute'>
+      <pose relative_to='base_link'>-0.13 0.12 0 0 -0 0</pose>
+      <parent>base_link</parent>
+      <child>rear_left_femur</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.4</lower>
+          <upper>1.4</upper>
+          <effort>30</effort>
+          <velocity>7</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rear_left_femur'>
+      <pose relative_to='RLFJ'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0.055 3.14159 1.57059 3.14159</pose>
+        <mass>0.4</mass>
+        <inertia>
+          <ixx>0.000266667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00135004</iyy>
+          <iyz>0</iyz>
+          <izz>0.00135004</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_left_femur_collision'>
+        <pose>0 0 -0.055 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/femur.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='rear_left_femur_visual'>
+        <pose>0 0 -0.055 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/femur.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='RLLLJ' type='revolute'>
+      <pose relative_to='rear_left_femur'>0 0 -0.115 0 -0 0</pose>
+      <parent>rear_left_femur</parent>
+      <child>rear_left_lower_leg</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.4</lower>
+          <upper>1.4</upper>
+          <effort>30</effort>
+          <velocity>7</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rear_left_lower_leg'>
+      <pose relative_to='RLLLJ'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0.084 3.14159 1.57059 3.14159</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.000436139</ixx>
+          <ixy>0</ixy>
+          <ixz>9.91964e-21</ixz>
+          <iyy>0.00081992</iyy>
+          <iyz>0</iyz>
+          <izz>0.000980247</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_left_lower_leg_collision'>
+        <pose>0 0 -0.075 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/lower_leg.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='rear_left_lower_leg_fixed_joint_lump__rear_left_contact_sensor_collision_1'>
+        <pose>0 0 -0.12 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.03</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name='rear_left_lower_leg_visual'>
+        <pose>0 0 -0.075 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/lower_leg.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='rear_left_lower_leg_fixed_joint_lump__rear_left_contact_sensor_visual_1'>
+        <pose>0 0 -0.12 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.03</radius>
+          </sphere>
+        </geometry>
+      </visual>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='RRFJ' type='revolute'>
+      <pose relative_to='base_link'>-0.13 -0.12 0 0 -0 0</pose>
+      <parent>base_link</parent>
+      <child>rear_right_femur</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.4</lower>
+          <upper>1.4</upper>
+          <effort>30</effort>
+          <velocity>7</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rear_right_femur'>
+      <pose relative_to='RRFJ'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0.055 3.14159 1.57059 3.14159</pose>
+        <mass>0.4</mass>
+        <inertia>
+          <ixx>0.000266667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00135004</iyy>
+          <iyz>0</iyz>
+          <izz>0.00135004</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_right_femur_collision'>
+        <pose>0 0 -0.055 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/femur.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='rear_right_femur_visual'>
+        <pose>0 0 -0.055 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/femur.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <self_collide>1</self_collide>
+    </link>
+    <joint name='RRLLJ' type='revolute'>
+      <pose relative_to='rear_right_femur'>0 0 -0.115 0 -0 0</pose>
+      <parent>rear_right_femur</parent>
+      <child>rear_right_lower_leg</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.4</lower>
+          <upper>1.4</upper>
+          <effort>30</effort>
+          <velocity>7</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rear_right_lower_leg'>
+      <pose relative_to='RRLLJ'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 -0.084 3.14159 1.57059 3.14159</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.000436139</ixx>
+          <ixy>0</ixy>
+          <ixz>9.91964e-21</ixz>
+          <iyy>0.00081992</iyy>
+          <iyz>0</iyz>
+          <izz>0.000980247</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_right_lower_leg_collision'>
+        <pose>0 0 -0.075 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/lower_leg.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='rear_right_lower_leg_fixed_joint_lump__rear_right_contact_sensor_collision_1'>
+        <pose>0 0 -0.12 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.03</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name='rear_right_lower_leg_visual'>
+        <pose>0 0 -0.075 0 -0 1.571</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://quad_walker/mesh/stl/lower_leg.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='rear_right_lower_leg_fixed_joint_lump__rear_right_contact_sensor_visual_1'>
+        <pose>0 0 -0.12 0 -0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.03</radius>
+          </sphere>
+        </geometry>
+      </visual>
+      <self_collide>1</self_collide>
+    </link>
+    <plugin name='gazebo_ros_imu_controller' filename='libgazebo_ros_imu.so'>
+      <robotNamespace/>
+      <topicName>imu/data</topicName>
+      <serviceName>imu/service</serviceName>
+      <bodyName>base_link</bodyName>
+      <gaussianNoise>0</gaussianNoise>
+      <rpyOffsets>0 0 0</rpyOffsets>
+      <alwaysOn>1</alwaysOn>
+      <gaussianNoise>0</gaussianNoise>
+    </plugin>
+    <plugin name='p3d_base_controller' filename='libgazebo_ros_p3d.so'>
+      <alwaysOn>1</alwaysOn>
+      <bodyName>base_link</bodyName>
+      <topicName>odom</topicName>
+      <gaussianNoise>0.01</gaussianNoise>
+      <frameName>world</frameName>
+      <xyzOffsets>0 0 0</xyzOffsets>
+      <rpyOffsets>0 0 0</rpyOffsets>
+    </plugin>
+    <static>0</static>
+    <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </model>
+</sdf>
